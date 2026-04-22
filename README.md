@@ -1,38 +1,33 @@
 # React-shop-cloudfront
 
-This is frontend starter project for nodejs-aws mentoring program. It uses the following technologies:
+## Manual deplomenty Links
 
-- [Vite](https://vitejs.dev/) as a project bundler
-- [React](https://beta.reactjs.org/) as a frontend framework
-- [React-router-dom](https://reactrouterdotcom.fly.dev/) as a routing library
-- [MUI](https://mui.com/) as a UI framework
-- [React-query](https://react-query-v3.tanstack.com/) as a data fetching library
-- [Formik](https://formik.org/) as a form library
-- [Yup](https://github.com/jquense/yup) as a validation schema
-- [Vitest](https://vitest.dev/) as a test runner
-- [MSW](https://mswjs.io/) as an API mocking library
-- [Eslint](https://eslint.org/) as a code linting tool
-- [Prettier](https://prettier.io/) as a code formatting tool
-- [TypeScript](https://www.typescriptlang.org/) as a type checking tool
+S3 Bucket (AccessDenied): [http://myshop-react-val-d-emar-2026.s3.eu-north-1.amazonaws.com](http://myshop-react-val-d-emar-2026.s3.eu-north-1.amazonaws.com)
+S3-website (403): [http://myshop-react-val-d-emar-2026.s3-website.eu-north-1.amazonaws.com](http://myshop-react-val-d-emar-2026.s3-website.eu-north-1.amazonaws.com)
+CloudFront: [https://d2m92kppsszocv.cloudfront.net](https://d2m92kppsszocv.cloudfront.net)
 
-## Available Scripts
+## AWS CDK deployment Links
 
-### `start`
+S3 Bucket (AccessDenied): [https://cdkstack-mystorebucket3f18987e-qpijutissi1y.s3.eu-north-1.amazonaws.com](https://cdkstack-mystorebucket3f18987e-qpijutissi1y.s3.eu-north-1.amazonaws.com)
+CloudFront: [https://d1t0zd53prid5l.cloudfront.net](https://d1t0zd53prid5l.cloudfront.net)
 
-Starts the project in dev mode with mocked API on local environment.
+## Manual deployment evaluation criteria (70 points)
 
-### `build`
+- [X] **30** -  `S3 Bucket` was created and configured properly. The `Application` was uploaded to `S3 Bucket` and is available over the Internet.
+- [X] **40** -  a `CloudFront` distribution is created and configured properly; the `Application` is now served with `CloudFront` and is available over the Internet via `CloudFront` URL.
 
-Builds the project for production in `dist` folder.
+> Due to changes in your `S3 Bucket`:
+>
+> - [X] `CloudFront` URL is provided and opens a static website.
+> - [X] `S3 Bucket` URL shows **403 Access Denied error**.
 
-### `preview`
+NOTE: _If this one is done, this means you acquire score points for both.(70 points)_
 
-Starts the project in production mode on local environment.
+## AWS CDK deployment evaluation criteria (+30 points) _(optional)_
 
-### `test`, `test:ui`, `test:coverage`
+- [X] **30** - `S3 Bucket` was created, `Application` was deployed, `CloudFront` Distribution and Invalidation created and configured by using `AWS CDK`. The `Application` can be built and deployed by running `npm` script commands.
 
-Runs tests in console, in browser or with coverage.
-
-### `lint`, `prettier`
-
-Runs linting and formatting for all files in `src` folder.
+> - [X] `PullRequest` contains:
+> - [X] `CloudFront` URL is provided and opens a static website
+> - [X] `S3 Bucket` URL shows **403 Access Denied error**
+> - [X] description of work has been done
