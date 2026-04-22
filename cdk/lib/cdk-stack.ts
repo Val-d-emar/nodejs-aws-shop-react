@@ -27,7 +27,7 @@ export class CdkStack extends cdk.Stack {
       "MyStoreDistribution",
       {
         defaultBehavior: {
-          origin: new origins.S3StaticWebsiteOrigin(bucket),
+          origin: origins.S3BucketOrigin.withOriginAccessControl(bucket),
           viewerProtocolPolicy:
             cloudfront.ViewerProtocolPolicy.REDIRECT_TO_HTTPS,
         },
@@ -41,7 +41,7 @@ export class CdkStack extends cdk.Stack {
         s3deploy.Source.asset(path.join(__dirname, "..", "..", "dist")),
       ],
       destinationBucket: bucket,
-      distribution, 
+      distribution,
       distributionPaths: ["/*"], // We clear the cache for all files with each deploy
     });
 
