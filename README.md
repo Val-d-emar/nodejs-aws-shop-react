@@ -1,6 +1,6 @@
 # React-shop-cloudfront
 
-## Manual deplomenty Links
+## Manual deployment Links
 
 S3 Bucket (AccessDenied): [http://myshop-react-val-d-emar-2026.s3.eu-north-1.amazonaws.com](http://myshop-react-val-d-emar-2026.s3.eu-north-1.amazonaws.com)
 S3-website (403): [http://myshop-react-val-d-emar-2026.s3-website.eu-north-1.amazonaws.com](http://myshop-react-val-d-emar-2026.s3-website.eu-north-1.amazonaws.com)
@@ -13,7 +13,7 @@ CloudFront: [https://d1t0zd53prid5l.cloudfront.net](https://d1t0zd53prid5l.cloud
 
 ## Manual deployment evaluation criteria (70 points)
 
-- [X] **30** -  `S3 Bucket` was created and configured properly. The `Application` was uploaded to `S3 Bucket` and is available over the Internet.
+- [X] **30** -  `S3 Bucket` was created and configured properly. The `Application` was uploaded to `S3 Bucket` and is not available over the Internet S3-website.
 - [X] **40** -  a `CloudFront` distribution is created and configured properly; the `Application` is now served with `CloudFront` and is available over the Internet via `CloudFront` URL.
 
 > Due to changes in your `S3 Bucket`:
@@ -31,3 +31,21 @@ NOTE: _If this one is done, this means you acquire score points for both.(70 poi
 > - [X] `CloudFront` URL is provided and opens a static website
 > - [X] `S3 Bucket` URL shows **403 Access Denied error**
 > - [X] description of work has been done
+
+
+## What was done:
+
+### Part 1: Manual Deployment
+
+- [X] Created an S3 bucket and configured static hosting.
+- [X] Built and uploaded the application manually.
+- [X] Created a CloudFront distribution and configured HTTPS and OAC access.
+- [X] Checked cache invalidation when updating content.
+
+### Part 2: Automation via AWS CDK (Automated Deployment)
+
+- [X] Created a CDK project in TypeScript.
+- [X] Wrote code to create an S3 bucket (with automatic deletion of objects).
+- [X] Wrote code to create a CloudFront distribution linked to the bucket via OAC.
+- [X] Added BucketDeployment for automatic file uploads and cache invalidation.
+- [X] Added the `deploy` npm script to the root `package.json`.
