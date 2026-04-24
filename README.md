@@ -8,8 +8,8 @@ CloudFront: [https://d2m92kppsszocv.cloudfront.net](https://d2m92kppsszocv.cloud
 
 ## AWS CDK deployment Links
 
-S3 Bucket (AccessDenied): [https://cdkstack-mystorebucket3f18987e-qpijutissi1y.s3.eu-north-1.amazonaws.com](https://cdkstack-mystorebucket3f18987e-qpijutissi1y.s3.eu-north-1.amazonaws.com)
-CloudFront: [https://d1t0zd53prid5l.cloudfront.net](https://d1t0zd53prid5l.cloudfront.net)
+S3 Bucket (AccessDenied): [https://cdkstack-mystorebucket3f18987e-t5r5j0yx2gul.s3.eu-north-1.amazonaws.com](https://cdkstack-mystorebucket3f18987e-t5r5j0yx2gul.s3.eu-north-1.amazonaws.com)
+CloudFront: [https://dhoyc6sbijzzm.cloudfront.net](https://dhoyc6sbijzzm.cloudfront.net)
 
 ## Manual deployment evaluation criteria (70 points)
 
@@ -21,8 +21,6 @@ CloudFront: [https://d1t0zd53prid5l.cloudfront.net](https://d1t0zd53prid5l.cloud
 > - [X] `CloudFront` URL is provided and opens a static website.
 > - [X] `S3 Bucket` URL shows **403 Access Denied error**.
 
-NOTE: _If this one is done, this means you acquire score points for both.(70 points)_
-
 ## AWS CDK deployment evaluation criteria (+30 points) _(optional)_
 
 - [X] **30** - `S3 Bucket` was created, `Application` was deployed, `CloudFront` Distribution and Invalidation created and configured by using `AWS CDK`. The `Application` can be built and deployed by running `npm` script commands.
@@ -31,7 +29,6 @@ NOTE: _If this one is done, this means you acquire score points for both.(70 poi
 > - [X] `CloudFront` URL is provided and opens a static website
 > - [X] `S3 Bucket` URL shows **403 Access Denied error**
 > - [X] description of work has been done
-
 
 ## What was done:
 
