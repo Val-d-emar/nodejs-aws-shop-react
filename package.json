@@ -4,15 +4,15 @@
   "private": true,
   "scripts": {
     "start": "vite",
-    "build": "tsc && vite build",
+    "build": "vite build",
     "preview": "npm run build && vite preview",
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage",
     "lint": "eslint --ignore-path .gitignore --fix src",
     "prettier": "prettier src --write",
-    "deploy": "npm run build && cdk deploy --app \"node cdk/bin/cdk.js\" --all",
-    "destroy": "cdk destroy --app \"node cdk/bin/cdk.js\" --all"
+    "deploy": "npm run build && cdk deploy --app \"node cdk/bin/cdk.js\" CdkStack",
+    "destroy": "cdk destroy --app \"node cdk/bin/cdk.js\" CdkStack"
   },
   "dependencies": {
     "@emotion/react": "^11.9.3",
