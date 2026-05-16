@@ -1,38 +1,20 @@
 # React-shop-cloudfront
 
-This is frontend starter project for nodejs-aws mentoring program. It uses the following technologies:
+# Task 4: Integration with DynamoDB
 
-- [Vite](https://vitejs.dev/) as a project bundler
-- [React](https://beta.reactjs.org/) as a frontend framework
-- [React-router-dom](https://reactrouterdotcom.fly.dev/) as a routing library
-- [MUI](https://mui.com/) as a UI framework
-- [React-query](https://react-query-v3.tanstack.com/) as a data fetching library
-- [Formik](https://formik.org/) as a form library
-- [Yup](https://github.com/jquense/yup) as a validation schema
-- [Vitest](https://vitest.dev/) as a test runner
-- [MSW](https://mswjs.io/) as an API mocking library
-- [Eslint](https://eslint.org/) as a code linting tool
-- [Prettier](https://prettier.io/) as a code formatting tool
-- [TypeScript](https://www.typescriptlang.org/) as a type checking tool
+## Links
 
-## Available Scripts
+- **API Endpoint:** [https://jco1jj7ev7.execute-api.eu-north-1.amazonaws.com/prod/products](https://jco1jj7ev7.execute-api.eu-north-1.amazonaws.com/prod/products)
+- **Frontend App (CloudFront):** [https://dhoyc6sbijzzm.cloudfront.net](https://dhoyc6sbijzzm.cloudfront.net)
+- **Backend PR:** [https://github.com/Val-d-emar/nodejs-aws-shop-backend/pull/2](https://github.com/Val-d-emar/nodejs-aws-shop-backend/pull/2)
 
-### `start`
+## What was done?
 
-Starts the project in dev mode with mocked API on local environment.
-
-### `build`
-
-Builds the project for production in `dist` folder.
-
-### `preview`
-
-Starts the project in production mode on local environment.
-
-### `test`, `test:ui`, `test:coverage`
-
-Runs tests in console, in browser or with coverage.
-
-### `lint`, `prettier`
-
-Runs linting and formatting for all files in `src` folder.
+- [x] The `products` and `stocks` tables have been created in DynamoDB.
+- [x] Data filling script: `product_service/scripts/fill-tables.ts`.
+- [x] Lambdas are integrated with the database (DocumentClient is used).
+- [x] A POST request has been implemented to create a product.
+- [x] **Additionally:** Input data validation (400 error).
+- [x] **Additionally:** Transactional record in two tables.
+- [x] **Additionally:** Logging of all requests.
+- [x] **Additionally:** Handling unexpected errors (500 error).

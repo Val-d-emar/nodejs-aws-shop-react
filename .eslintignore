@@ -2,3 +2,6 @@ node_modules
 public
 vite.config.ts
 serverless.yml
+dist
+cdk
+cdk_out
