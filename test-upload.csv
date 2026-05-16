@@ -1,0 +1,4 @@
+title,description,price,count
+"Super CSV Product 1","Imported via S3 and Signed URL",199,10
+"Awesome CSV Product 2","Second imported product",49,5
+"Cheap CSV Product 3","Just a cheap item",9,100
