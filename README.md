@@ -1,20 +1,21 @@
 # React-shop-cloudfront
 
-# Task 4: Integration with DynamoDB
+## Task 5 (Integration with S3)
 
 ## Links
 
 - **API Endpoint:** [https://jco1jj7ev7.execute-api.eu-north-1.amazonaws.com/prod/products](https://jco1jj7ev7.execute-api.eu-north-1.amazonaws.com/prod/products)
 - **Frontend App (CloudFront):** [https://dhoyc6sbijzzm.cloudfront.net](https://dhoyc6sbijzzm.cloudfront.net)
-- **Backend PR:** [https://github.com/Val-d-emar/nodejs-aws-shop-backend/pull/2](https://github.com/Val-d-emar/nodejs-aws-shop-backend/pull/2)
+- **Backend PR:** [https://github.com/Val-d-emar/nodejs-aws-shop-backend/pull/3](https://github.com/Val-d-emar/nodejs-aws-shop-backend/pull/3)
+- **Swagger file:** [product_service/doc/openapi.yaml](https://github.com/Val-d-emar/nodejs-aws-shop-backend/blob/task-5/product_service/doc/openapi.yaml)
+- **Import Service API:** [https://pko6smj112.execute-api.eu-north-1.amazonaws.com/prod/import](https://pko6smj112.execute-api.eu-north-1.amazonaws.com/prod/import)
 
 ## What was done?
 
-- [x] The `products` and `stocks` tables have been created in DynamoDB.
-- [x] Data filling script: `product_service/scripts/fill-tables.ts`.
-- [x] Lambdas are integrated with the database (DocumentClient is used).
-- [x] A POST request has been implemented to create a product.
-- [x] **Additionally:** Input data validation (400 error).
-- [x] **Additionally:** Transactional record in two tables.
-- [x] **Additionally:** Logging of all requests.
-- [x] **Additionally:** Handling unexpected errors (500 error).
+- [x] AWS CDK Stack contains configuration for `importProductsFile` function
+- [x] The `importProductsFile` lambda function returns a correct response which can be used to upload a file into the S3 bucket
+- [x] Frontend application is integrated with `importProductsFile` lambda
+- [x] The `importFileParser` lambda function is implemented and AWS CDK. Stack contains configuration for the lambda
+- [x] **+10** **(All languages)** - `importProductsFile` lambda is covered by _unit tests_.
+- [x] **+10** **(All languages)** - `importFileParser` lambda is covered by _unit tests_.
+- [x] **+10** **(All languages)** - At the end of the stream the lambda function should move the file from the `uploaded` folder into the `parsed` folder (`move the file` means that file should be copied into a new folder in the same bucket called `parsed`, and then deleted from `uploaded` folder)
