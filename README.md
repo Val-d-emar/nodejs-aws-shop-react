@@ -16,3 +16,7 @@
 
 - **Frontend App (CloudFront):** [https://dhoyc6sbijzzm.cloudfront.net](https://dhoyc6sbijzzm.cloudfront.net)
 - **BE PR:** [https://github.com/Val-d-emar/nodejs-aws-shop-backend/pull/5](https://github.com/Val-d-emar/nodejs-aws-shop-backend/pull/5)
+- **Test Credentials for Reviewers:**
+  - Login: `Val-d-emar`
+  - Password: `TEST_PASSWORD`
+  - Token string to put in localStorage: `VmFsLWQtZW1hcjpURVNUX1BBU1NXT1JE`
