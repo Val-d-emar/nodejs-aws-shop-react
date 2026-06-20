@@ -7,7 +7,11 @@ import { Order } from "~/models/Order";
 
 export function useOrders() {
   return useQuery<Order[], AxiosError>("orders", async () => {
-    const res = await axios.get<Order[]>(`${API_PATHS.order}/order`);
+    const res = await axios.get<Order[]>(`${API_PATHS.order}/order`, {
+      headers: {
+        Authorization: `Basic ${localStorage.getItem("authorization_token")}`,
+      },
+    });
     return res.data;
   });
 }
@@ -16,7 +20,7 @@ export function useInvalidateOrders() {
   const queryClient = useQueryClient();
   return React.useCallback(
     () => queryClient.invalidateQueries("orders", { exact: true }),
-    []
+    [],
   );
 }
 
@@ -29,7 +33,7 @@ export function useUpdateOrderStatus() {
           Authorization: `Basic ${localStorage.getItem("authorization_token")}`,
         },
       });
-    }
+    },
   );
 }
 
@@ -48,7 +52,7 @@ export function useInvalidateOrder() {
   return React.useCallback(
     (id: string) =>
       queryClient.invalidateQueries(["order", { id }], { exact: true }),
-    []
+    [],
   );
 }
 
@@ -58,6 +62,6 @@ export function useDeleteOrder() {
       headers: {
         Authorization: `Basic ${localStorage.getItem("authorization_token")}`,
       },
-    })
+    }),
   );
 }

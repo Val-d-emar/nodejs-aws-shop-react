@@ -3,15 +3,37 @@ import React from "react";
 import { useQuery, useQueryClient, useMutation } from "react-query";
 import API_PATHS from "~/constants/apiPaths";
 import { CartItem } from "~/models/CartItem";
+import { Product } from "~/models/Product";
 
 export function useCart() {
   return useQuery<CartItem[], AxiosError>("cart", async () => {
-    const res = await axios.get<CartItem[]>(`${API_PATHS.cart}/profile/cart`, {
+    const res = await axios.get<any[]>(`${API_PATHS.cart}/profile/cart`, {
       headers: {
         Authorization: `Basic ${localStorage.getItem("authorization_token")}`,
       },
     });
-    return res.data;
+
+    const rawCartItems = res.data;
+
+    const joinedCartItemsPromises = rawCartItems.map(async (item) => {
+      try {
+        const productRes = await axios.get<Product>(
+          `${API_PATHS.bff}/products/${item.product.id}`,
+        );
+        return {
+          product: productRes.data,
+          count: item.count,
+        };
+      } catch (error) {
+        console.error(
+          `Failed to fetch product details for ${item.product.id}`,
+          error,
+        );
+        return item;
+      }
+    });
+
+    return Promise.all(joinedCartItemsPromises);
   });
 }
 

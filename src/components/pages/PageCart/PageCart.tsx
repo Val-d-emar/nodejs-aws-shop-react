@@ -58,15 +58,22 @@ export default function PageCart() {
       setActiveStep((step) => step + 1);
       return;
     }
+
+    const total = data.reduce(
+      (acc, item) => acc + item.product.price * item.count,
+      0,
+    );
+
     const values = {
       items: data.map((i) => ({
         productId: i.product.id,
         count: i.count,
       })),
       address,
+      total,
     };
 
-    submitOrder(values as Omit<Order, "id">, {
+    submitOrder(values as any, {
       onSuccess: () => {
         setActiveStep(activeStep + 1);
         invalidateCart();
