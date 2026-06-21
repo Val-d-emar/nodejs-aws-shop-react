@@ -22,7 +22,11 @@ import TableBody from "@mui/material/TableBody";
 import TableContainer from "@mui/material/TableContainer";
 import Box from "@mui/material/Box";
 import { useQueries } from "react-query";
-import { useInvalidateOrder, useUpdateOrderStatus } from "~/queries/orders";
+import {
+  useInvalidateOrder,
+  useUpdateOrderStatus,
+  useInvalidateOrders,
+} from "~/queries/orders";
 
 type FormValues = {
   status: OrderStatus;
@@ -35,7 +39,13 @@ export default function PageOrder() {
     {
       queryKey: ["order", { id }],
       queryFn: async () => {
-        const res = await axios.get<Order>(`${API_PATHS.order}/order/${id}`);
+        const res = await axios.get<Order>(`${API_PATHS.order}/order/${id}`, {
+          headers: {
+            Authorization: `Basic ${localStorage.getItem(
+              "authorization_token",
+            )}`,
+          },
+        });
         return res.data;
       },
     },
@@ -43,7 +53,7 @@ export default function PageOrder() {
       queryKey: "products",
       queryFn: async () => {
         const res = await axios.get<AvailableProduct[]>(
-          `${API_PATHS.bff}/product/available`
+          `${API_PATHS.bff}/products`,
         );
         return res.data;
       },
@@ -55,6 +65,7 @@ export default function PageOrder() {
   ] = results;
   const { mutateAsync: updateOrderStatus } = useUpdateOrderStatus();
   const invalidateOrder = useInvalidateOrder();
+  const invalidateOrders = useInvalidateOrders();
   const cartItems: CartItem[] = React.useMemo(() => {
     if (order && products) {
       return order.items.map((item: OrderItem) => {
@@ -92,7 +103,12 @@ export default function PageOrder() {
           onSubmit={(values) =>
             updateOrderStatus(
               { id: order.id, ...values },
-              { onSuccess: () => invalidateOrder(order.id) }
+              {
+                onSuccess: () => {
+                  invalidateOrder(order.id);
+                  invalidateOrders();
+                },
+              },
             )
           }
         >
