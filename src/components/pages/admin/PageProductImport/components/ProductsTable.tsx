@@ -42,6 +42,7 @@ export default function ProductsTable() {
                 {formatAsPrice(product.price)}
               </TableCell>
               <TableCell align="right">{product.count}</TableCell>
+              <TableCell align="right">{product.image}</TableCell>
               <TableCell align="right">
                 <Button
                   size="small"
