@@ -16,6 +16,21 @@ export function useOrders() {
   });
 }
 
+export function useOrder(id: string) {
+  return useQuery<Order, AxiosError>(
+    ["order", { id }],
+    async () => {
+      const res = await axios.get<Order>(`${API_PATHS.order}/order/${id}`, {
+        headers: {
+          Authorization: `Basic ${localStorage.getItem("authorization_token")}`,
+        },
+      });
+      return res.data;
+    },
+    { enabled: !!id },
+  );
+}
+
 export function useInvalidateOrders() {
   const queryClient = useQueryClient();
   return React.useCallback(
